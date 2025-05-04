@@ -7,48 +7,6 @@
 #include <memory>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
-#include <windows.h>
-
-std::string runCommandWithoutWindow(const std::string& cmd) {
-    // Set up the structures needed for CreateProcess
-    STARTUPINFO si;
-    PROCESS_INFORMATION pi;
-
-    // Initialize the STARTUPINFO structure
-    ZeroMemory(&si, sizeof(si));
-    si.cb = sizeof(si);
-    si.dwFlags = STARTF_USESHOWWINDOW;
-    si.wShowWindow = SW_HIDE; // Hide the window
-
-    // Initialize the PROCESS_INFORMATION structure
-    ZeroMemory(&pi, sizeof(pi));
-
-    // Create the process
-    if (!CreateProcess(
-            NULL,                   // Application name (NULL means use command line)
-            const_cast<char*>(cmd.c_str()), // Command to execute
-            NULL,                   // Process handle not inheritable
-            NULL,                   // Thread handle not inheritable
-            FALSE,                  // Set handle inheritance to FALSE
-            0,                      // No creation flags
-            NULL,                   // Use parent's environment block
-            NULL,                   // Use parent's starting directory
-            &si,                    // Pointer to STARTUPINFO structure
-            &pi                     // Pointer to PROCESS_INFORMATION structure
-    )) {
-        std::cerr << "CreateProcess failed (" << GetLastError() << ").\n";
-        return "";
-    }
-
-    // Wait until the process finishes
-    WaitForSingleObject(pi.hProcess, INFINITE);
-
-    // Clean up handles
-    CloseHandle(pi.hProcess);
-    CloseHandle(pi.hThread);
-
-    return "Command executed successfully.";
-}
 
 namespace py = pybind11;
 
