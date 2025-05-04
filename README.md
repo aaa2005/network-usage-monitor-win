@@ -12,7 +12,7 @@
  pip install customtkinter pybind11
 ```
 - get and start the code:
-```git
+```zsh
  git clone https://github.com/aaa2005/network-usage-monitor-win.git 
  cd network-usage-monitor-win
  ./start.bat
