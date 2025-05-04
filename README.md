@@ -8,7 +8,7 @@
 
 # Use the app
 - python libs you will need:
-```bash
+```python
  pip install customtkinter pybind11
 ```
 - get and start the code:
