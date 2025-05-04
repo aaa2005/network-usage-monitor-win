@@ -2,6 +2,7 @@
 
 - retriving network data using C++
 - UI using Python
+- 
 ![Network Usage Monitor App](imgs/num.png)
 
 
