@@ -8,11 +8,11 @@
 
 # Use the app
 - python libs you will need:
-```python
+```bash
  pip install customtkinter pybind11
 ```
 - get and start the code:
-```bash
+```git
  git clone https://github.com/aaa2005/network-usage-monitor-win.git 
  cd network-usage-monitor-win
  ./start.bat
