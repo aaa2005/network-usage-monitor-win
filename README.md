@@ -2,8 +2,15 @@
 
 - retriving network data using C++
 - UI using Python
+![Network Usage Monitor App](imgs/num.png)
+
 
 # Use the app
+- python libs you will need:
+```bash
+ pip install customtkinter pybind11
+```
+- get and start the code:
 ```bash
  git clone https://github.com/aaa2005/network-usage-monitor-win.git 
  cd network-usage-monitor-win
